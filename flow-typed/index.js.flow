@@ -1,0 +1,9 @@
+/* eslint-disable no-unused-vars */
+
+type UpsertResult = {
+  nInserted?: number,
+  nUpserted?: number,
+  nMatched?: number,
+  nModified?: number,
+  nRemoved?: number,
+}
