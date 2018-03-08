@@ -15,6 +15,7 @@ export default function readFromCsv(
   {
     autoDetect = true,
     encoding = 'utf8',
+    ...rest
   }: {
     autoDetect: boolean,
     encoding: string,
@@ -25,7 +26,7 @@ export default function readFromCsv(
   debug(`File ${csvFilePath} have encoding ${_encoding}`)
   const items = []
   return new Promise((resolve, reject) => {
-    csv({ delimiter: 'auto' })
+    csv({ delimiter: 'auto', ...rest })
       .fromStream(
         stream.pipe(iconv.decodeStream(_encoding)),
       )
